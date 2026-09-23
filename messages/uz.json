@@ -18,7 +18,7 @@
       },
       "contact": {
         "title": "compute.uz bilan bog‘lanish — bugun narx oling",
-        "description": "Nima kerakligini ayting va bir necha soat ichida javob oling. Telegram, telefon yoki email. Ish vaqti Du–Sha, 9:00–19:00."
+        "description": "Nima kerakligini ayting va bir necha soat ichida javob oling. Telegram, telefon yoki email. 24/7 ishlaymiz."
       }
     }
   },
@@ -167,7 +167,8 @@
     "rights": "© {year} compute.uz. Barcha huquqlar himoyalangan.",
     "telegram": "Telegram",
     "privacy": "Maxfiylik siyosati",
-    "terms": "Foydalanish shartlari"
+    "terms": "Foydalanish shartlari",
+    "channel": "Telegram kanal"
   },
   "about": {
     "label": "Biz haqimizda",
@@ -222,7 +223,7 @@
   "contact": {
     "label": "Aloqa",
     "title": "<hl>Loyihangiz</hl> haqida gaplashamiz",
-    "text": "Xabar yuboring, bir necha soat ichida javob beramiz. Telegram — eng tez aloqa usuli.",
+    "text": "Xabar yuboring, bir necha soat ichida javob beramiz. Telegram — eng tez aloqa usuli. 24/7 ishlaymiz.",
     "form": {
       "name": "Ismingiz",
       "namePlaceholder": "Aziz Karimov",
@@ -244,7 +245,8 @@
       "phone": "Telefon",
       "email": "Email",
       "hours": "Ish vaqti",
-      "hoursValue": "Du–Sha, 9:00–19:00"
+      "hoursValue": "24/7, har kuni",
+      "channel": "Telegram kanal"
     }
   }
 }

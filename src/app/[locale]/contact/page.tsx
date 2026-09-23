@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { Clock, Mail, Phone, Send } from "lucide-react";
+import { Clock, Mail, Megaphone, Phone, Send } from "lucide-react";
 import { site } from "@/lib/site";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -32,6 +32,7 @@ export default async function ContactPage({ params }: Props) {
 
   const direct = [
     { Icon: Send, label: t("direct.telegram"), value: site.telegramHandle, href: site.telegram, external: true },
+    { Icon: Megaphone, label: t("direct.channel"), value: site.channelHandle, href: site.channel, external: true },
     { Icon: Phone, label: t("direct.phone"), value: site.phone, href: site.phoneHref },
     { Icon: Mail, label: t("direct.email"), value: site.email, href: `mailto:${site.email}` },
     { Icon: Clock, label: t("direct.hours"), value: t("direct.hoursValue") },

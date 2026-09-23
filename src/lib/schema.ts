@@ -17,14 +17,14 @@ export function organizationSchema(locale: string, description: string) {
     description,
     telephone: site.phone,
     email: site.email,
-    sameAs: [site.telegram],
+    sameAs: [site.channel, site.telegram],
     areaServed: { "@type": "Country", name: "Uzbekistan" },
     address: { "@type": "PostalAddress", addressCountry: "UZ" },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      opens: "09:00",
-      closes: "19:00",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "00:00",
+      closes: "23:59",
     },
     contactPoint: {
       "@type": "ContactPoint",

@@ -13,13 +13,16 @@ export function Footer() {
         <p>{t("rights", { year })}</p>
         <nav className="flex items-center gap-6" aria-label="Footer">
           <a
-            href={site.telegram}
+            href={site.channel}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 transition-colors hover:text-cyan"
           >
             <Send className="size-3.5" />
-            {t("telegram")}
+            {t("channel")}
+          </a>
+          <a href={site.phoneHref} className="transition-colors hover:text-cyan">
+            {site.phone}
           </a>
           <span className="cursor-default transition-colors hover:text-muted">
             {t("privacy")}

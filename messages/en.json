@@ -18,7 +18,7 @@
       },
       "contact": {
         "title": "Contact compute.uz — get a quote today",
-        "description": "Tell us what you need and get a reply within hours. Telegram, phone or email. Working hours Mon–Sat, 9:00–19:00."
+        "description": "Tell us what you need and get a reply within hours. Telegram, phone or email. Available 24/7."
       }
     }
   },
@@ -167,7 +167,8 @@
     "rights": "© {year} compute.uz. All rights reserved.",
     "telegram": "Telegram",
     "privacy": "Privacy Policy",
-    "terms": "Terms of Service"
+    "terms": "Terms of Service",
+    "channel": "Telegram channel"
   },
   "about": {
     "label": "About Us",
@@ -222,7 +223,7 @@
   "contact": {
     "label": "Contact",
     "title": "Let's talk about <hl>your project</hl>",
-    "text": "Send a message and we'll reply within a few hours. Telegram is the fastest way to reach us.",
+    "text": "Send a message and we will reply within a few hours. Telegram is the fastest way to reach us. We are available 24/7.",
     "form": {
       "name": "Your name",
       "namePlaceholder": "John Smith",
@@ -244,7 +245,8 @@
       "phone": "Phone",
       "email": "Email",
       "hours": "Working hours",
-      "hoursValue": "Mon–Sat, 9:00–19:00"
+      "hoursValue": "24/7, every day",
+      "channel": "Telegram channel"
     }
   }
 }
