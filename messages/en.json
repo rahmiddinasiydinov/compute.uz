@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "title": "compute.uz — IT services for your success",
+    "description": "Reliable IT services in Uzbekistan: OS and software installation, business websites, process automation and Telegram bots.",
+    "keywords": "IT services Uzbekistan, Windows installation Tashkent, Linux setup, software installation, business website development, Telegram bot development, business automation, compute.uz",
+    "pages": {
+      "home": {
+        "title": "compute.uz — IT services for your success",
+        "description": "Reliable IT services in Uzbekistan: OS and software installation, business websites, process automation and Telegram bots. Fast, secure, fairly priced."
+      },
+      "services": {
+        "title": "IT Services — OS setup, software, websites, automation",
+        "description": "OS installation (Windows/Linux), software setup, business websites on Next.js, Telegram bots and process automation. Only legal software. Prices from 100 000 UZS."
+      },
+      "about": {
+        "title": "About compute.uz — small team, serious results",
+        "description": "IT service studio in Uzbekistan. Honest advice, legal software only, clear communication and long-term support for people and small businesses."
+      },
+      "contact": {
+        "title": "Contact compute.uz — get a quote today",
+        "description": "Tell us what you need and get a reply within hours. Telegram, phone or email. Working hours Mon–Sat, 9:00–19:00."
+      }
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Get in Touch",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "hero": {
+    "badge": "IT Services",
+    "title": "Your Tech Partner for a <hl>Smarter Tomorrow</hl>",
+    "text": "Compute provides reliable IT services, helping individuals and businesses get the most out of technology. From system setup to web development — we've got you covered.",
+    "primary": "Contact Us",
+    "secondary": "Our Services"
+  },
+  "services": {
+    "label": "Our Services",
+    "title": "Complete IT Solutions for <hl>Your Needs</hl>",
+    "text": "We offer a wide range of IT services to help you work smarter, faster and more efficiently.",
+    "items": {
+      "os": {
+        "title": "OS Installation",
+        "text": "Windows or Linux installation and configuration."
+      },
+      "software": {
+        "title": "Software Installation",
+        "text": "Essential and business software setup."
+      },
+      "web": {
+        "title": "Business Websites",
+        "text": "Modern, fast and SEO-friendly websites for your business."
+      },
+      "automation": {
+        "title": "Business Process Automation",
+        "text": "Web apps, Telegram bots and mini-apps to save your time."
+      },
+      "legal": {
+        "title": "Safe & Legal Software",
+        "text": "We do not install unofficial or illegally copied software."
+      }
+    },
+    "custom": {
+      "title": "Need something specific?",
+      "text": "Tell us your idea — we'll find the best solution for you.",
+      "cta": "Contact Us"
+    },
+    "page": {
+      "title": "Everything your business needs to <hl>run smoothly</hl>",
+      "text": "From a single laptop to a full company workflow. Pick a service or tell us what you need.",
+      "details": {
+        "os": [
+          "Clean Windows 10/11 or Linux install",
+          "Drivers, updates and activation",
+          "Data backup and migration",
+          "Performance tuning"
+        ],
+        "software": [
+          "Office suites and browsers",
+          "Accounting and business tools",
+          "Developer environments",
+          "Licensing guidance"
+        ],
+        "web": [
+          "Landing pages and corporate sites",
+          "Next.js, fast and SEO-ready",
+          "Multilingual (UZ / RU / EN)",
+          "Hosting and domain setup"
+        ],
+        "automation": [
+          "Telegram bots and mini-apps",
+          "CRM and order flows",
+          "Internal dashboards",
+          "Integrations with your tools"
+        ],
+        "legal": [
+          "Only official distributions",
+          "Free and open-source alternatives",
+          "Transparent licensing",
+          "No pirated software, ever"
+        ]
+      },
+      "from": "From",
+      "prices": {
+        "os": "150 000 UZS",
+        "software": "100 000 UZS",
+        "web": "3 000 000 UZS",
+        "automation": "on request",
+        "legal": "free advice"
+      }
+    }
+  },
+  "why": {
+    "label": "Why Choose Us",
+    "title": "Reliable. Fast. Professional.",
+    "text": "We focus on quality, clear communication and long-term support. Your satisfaction is our priority.",
+    "cta": "About Us",
+    "items": {
+      "fast": {
+        "title": "Fast Delivery",
+        "text": "We value your time and work efficiently."
+      },
+      "secure": {
+        "title": "Trusted & Secure",
+        "text": "Your data and systems are in safe hands."
+      },
+      "support": {
+        "title": "Friendly Support",
+        "text": "We're always here to help."
+      },
+      "pricing": {
+        "title": "Affordable Pricing",
+        "text": "High quality services at fair prices."
+      }
+    }
+  },
+  "how": {
+    "label": "How It Works",
+    "title": "Get Started in 3 Simple Steps",
+    "text": "It's easy — just reach out, tell us what you need, and we'll take care of the rest.",
+    "steps": {
+      "contact": {
+        "title": "Contact Us",
+        "text": "Share your needs with us."
+      },
+      "work": {
+        "title": "We Work",
+        "text": "We prepare the best solution for you."
+      },
+      "results": {
+        "title": "Get Results",
+        "text": "You enjoy the result — quickly and reliably."
+      }
+    }
+  },
+  "cta": {
+    "tagline": "IT services for your success",
+    "title": "Have a project in mind?",
+    "text": "Let's make it happen together.",
+    "button": "Contact Us"
+  },
+  "footer": {
+    "rights": "© {year} compute.uz. All rights reserved.",
+    "telegram": "Telegram",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "about": {
+    "label": "About Us",
+    "title": "Small team, <hl>serious results</hl>",
+    "text": "Compute is an IT service studio based in Uzbekistan. We help people and small businesses set up, secure and automate their technology — without jargon and without surprises.",
+    "stats": {
+      "clients": {
+        "value": 120,
+        "suffix": "+",
+        "label": "Happy clients"
+      },
+      "projects": {
+        "value": 340,
+        "suffix": "+",
+        "label": "Completed jobs"
+      },
+      "years": {
+        "value": 5,
+        "suffix": "",
+        "label": "Years of experience"
+      },
+      "response": {
+        "value": 30,
+        "suffix": " min",
+        "label": "Average response"
+      }
+    },
+    "values": {
+      "label": "Our Values",
+      "title": "What we stand for",
+      "items": {
+        "honest": {
+          "title": "Honest advice",
+          "text": "We recommend what you actually need, not what costs the most."
+        },
+        "legal": {
+          "title": "Legal software only",
+          "text": "Official licenses or open-source. Nothing pirated."
+        },
+        "clear": {
+          "title": "Clear communication",
+          "text": "Plain language, fixed quotes, no hidden fees."
+        },
+        "longterm": {
+          "title": "Long-term support",
+          "text": "We stay around after the job is done."
+        }
+      }
+    },
+    "cta": "Work with us"
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's talk about <hl>your project</hl>",
+    "text": "Send a message and we'll reply within a few hours. Telegram is the fastest way to reach us.",
+    "form": {
+      "name": "Your name",
+      "namePlaceholder": "John Smith",
+      "contact": "Phone or Telegram",
+      "contactPlaceholder": "+998 90 123 45 67 or @username",
+      "service": "Service",
+      "servicePlaceholder": "Choose a service",
+      "message": "Message",
+      "messagePlaceholder": "Tell us what you need…",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "success": "Message sent! We'll get back to you soon.",
+      "error": "Could not send. Please try Telegram instead.",
+      "other": "Other"
+    },
+    "direct": {
+      "title": "Direct contacts",
+      "telegram": "Telegram",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Working hours",
+      "hoursValue": "Mon–Sat, 9:00–19:00"
+    }
+  }
+}

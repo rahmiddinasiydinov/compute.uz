@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "title": "compute.uz — Muvaffaqiyatingiz uchun IT xizmatlar",
+    "description": "O'zbekistonda ishonchli IT xizmatlar: OS va dasturlar o'rnatish, biznes uchun saytlar, jarayonlarni avtomatlashtirish va Telegram botlar.",
+    "keywords": "IT xizmatlar O‘zbekiston, Windows o‘rnatish Toshkent, Linux o‘rnatish, dastur o‘rnatish, biznes uchun sayt yaratish, Telegram bot yaratish, biznesni avtomatlashtirish, compute.uz",
+    "pages": {
+      "home": {
+        "title": "compute.uz — Muvaffaqiyatingiz uchun IT xizmatlar",
+        "description": "O‘zbekistonda ishonchli IT xizmatlar: OS va dasturlar o‘rnatish, biznes uchun saytlar, jarayonlarni avtomatlashtirish va Telegram botlar. Tez, xavfsiz, hamyonbop."
+      },
+      "services": {
+        "title": "IT xizmatlar — OS, dasturlar, saytlar, avtomatlashtirish",
+        "description": "Windows/Linux o‘rnatish, dasturlar sozlash, Next.js’da biznes saytlar, Telegram botlar va avtomatlashtirish. Faqat qonuniy dasturlar. Narxlar 100 000 so‘mdan."
+      },
+      "about": {
+        "title": "compute.uz haqida — kichik jamoa, jiddiy natijalar",
+        "description": "O‘zbekistondagi IT xizmatlar studiyasi. Halol maslahat, faqat qonuniy dasturlar, aniq muloqot va uzoq muddatli yordam."
+      },
+      "contact": {
+        "title": "compute.uz bilan bog‘lanish — bugun narx oling",
+        "description": "Nima kerakligini ayting va bir necha soat ichida javob oling. Telegram, telefon yoki email. Ish vaqti Du–Sha, 9:00–19:00."
+      }
+    }
+  },
+  "nav": {
+    "home": "Bosh sahifa",
+    "services": "Xizmatlar",
+    "about": "Biz haqimizda",
+    "contact": "Aloqa",
+    "cta": "Bog'lanish",
+    "menu": "Menyu",
+    "close": "Yopish"
+  },
+  "hero": {
+    "badge": "IT xizmatlar",
+    "title": "<hl>Aqlli kelajak</hl> uchun texnologik hamkoringiz",
+    "text": "Compute ishonchli IT xizmatlarni taqdim etadi va odamlar hamda bizneslarga texnologiyadan maksimal foyda olishga yordam beradi. Tizim sozlashdan veb-dasturlashgacha — hammasi biz bilan.",
+    "primary": "Bog'lanish",
+    "secondary": "Xizmatlarimiz"
+  },
+  "services": {
+    "label": "Xizmatlarimiz",
+    "title": "<hl>Ehtiyojlaringiz</hl> uchun to'liq IT yechimlar",
+    "text": "Aqlliroq, tezroq va samaraliroq ishlashingiz uchun keng ko'lamli IT xizmatlarni taklif etamiz.",
+    "items": {
+      "os": {
+        "title": "OS o'rnatish",
+        "text": "Windows yoki Linux o'rnatish va sozlash."
+      },
+      "software": {
+        "title": "Dasturlar o'rnatish",
+        "text": "Asosiy va biznes dasturlarini sozlash."
+      },
+      "web": {
+        "title": "Biznes uchun saytlar",
+        "text": "Zamonaviy, tez va SEO-ga mos veb-saytlar."
+      },
+      "automation": {
+        "title": "Biznes jarayonlarini avtomatlashtirish",
+        "text": "Vaqtingizni tejaydigan veb-ilovalar, Telegram botlar va mini-ilovalar."
+      },
+      "legal": {
+        "title": "Xavfsiz va qonuniy dasturlar",
+        "text": "Norasmiy yoki pirat dasturlarni o'rnatmaymiz."
+      }
+    },
+    "custom": {
+      "title": "Maxsus narsa kerakmi?",
+      "text": "G'oyangizni ayting — siz uchun eng yaxshi yechimni topamiz.",
+      "cta": "Bog'lanish"
+    },
+    "page": {
+      "title": "Biznesingiz <hl>uzluksiz ishlashi</hl> uchun kerak bo'lgan hamma narsa",
+      "text": "Bitta noutbukdan to'liq kompaniya ish jarayonigacha. Xizmatni tanlang yoki nima kerakligini ayting.",
+      "details": {
+        "os": [
+          "Toza Windows 10/11 yoki Linux o'rnatish",
+          "Drayverlar, yangilanishlar va faollashtirish",
+          "Ma'lumotlarni zaxiralash va ko'chirish",
+          "Unumdorlikni oshirish"
+        ],
+        "software": [
+          "Ofis paketlari va brauzerlar",
+          "Buxgalteriya va biznes vositalari",
+          "Dasturlash muhitlari",
+          "Litsenziya bo'yicha maslahat"
+        ],
+        "web": [
+          "Landing va korporativ saytlar",
+          "Next.js, tez va SEO-ga tayyor",
+          "Ko'p tilli (UZ / RU / EN)",
+          "Hosting va domen sozlash"
+        ],
+        "automation": [
+          "Telegram botlar va mini-ilovalar",
+          "CRM va buyurtma oqimlari",
+          "Ichki dashboardlar",
+          "Vositalaringiz bilan integratsiya"
+        ],
+        "legal": [
+          "Faqat rasmiy distributivlar",
+          "Bepul va ochiq kodli muqobillar",
+          "Shaffof litsenziyalash",
+          "Pirat dasturlar — hech qachon"
+        ]
+      },
+      "from": "Narxi",
+      "prices": {
+        "os": "150 000 so'mdan",
+        "software": "100 000 so'mdan",
+        "web": "3 000 000 so'mdan",
+        "automation": "so'rov bo'yicha",
+        "legal": "bepul maslahat"
+      }
+    }
+  },
+  "why": {
+    "label": "Nega aynan biz",
+    "title": "Ishonchli. Tez. Professional.",
+    "text": "Biz sifat, aniq muloqot va uzoq muddatli qo'llab-quvvatlashga e'tibor beramiz. Sizning mamnunligingiz — bizning ustuvorligimiz.",
+    "cta": "Biz haqimizda",
+    "items": {
+      "fast": {
+        "title": "Tez bajarish",
+        "text": "Vaqtingizni qadrlaymiz va samarali ishlaymiz."
+      },
+      "secure": {
+        "title": "Ishonchli va xavfsiz",
+        "text": "Ma'lumotlaringiz va tizimlaringiz ishonchli qo'llarda."
+      },
+      "support": {
+        "title": "Do'stona yordam",
+        "text": "Biz doimo yordamga tayyormiz."
+      },
+      "pricing": {
+        "title": "Hamyonbop narxlar",
+        "text": "Adolatli narxda yuqori sifatli xizmatlar."
+      }
+    }
+  },
+  "how": {
+    "label": "Qanday ishlaydi",
+    "title": "3 oddiy qadamda boshlang",
+    "text": "Oson — bizga yozing, nima kerakligini ayting, qolganini o'zimiz hal qilamiz.",
+    "steps": {
+      "contact": {
+        "title": "Bog'laning",
+        "text": "Ehtiyojlaringizni ayting."
+      },
+      "work": {
+        "title": "Biz ishlaymiz",
+        "text": "Siz uchun eng yaxshi yechimni tayyorlaymiz."
+      },
+      "results": {
+        "title": "Natija oling",
+        "text": "Natijadan bahramand bo'ling — tez va ishonchli."
+      }
+    }
+  },
+  "cta": {
+    "tagline": "Muvaffaqiyatingiz uchun IT xizmatlar",
+    "title": "Loyiha g'oyangiz bormi?",
+    "text": "Keling, uni birga amalga oshiramiz.",
+    "button": "Bog'lanish"
+  },
+  "footer": {
+    "rights": "© {year} compute.uz. Barcha huquqlar himoyalangan.",
+    "telegram": "Telegram",
+    "privacy": "Maxfiylik siyosati",
+    "terms": "Foydalanish shartlari"
+  },
+  "about": {
+    "label": "Biz haqimizda",
+    "title": "Kichik jamoa, <hl>jiddiy natijalar</hl>",
+    "text": "Compute — O'zbekistondagi IT xizmatlar studiyasi. Odamlar va kichik bizneslarga texnologiyani sozlash, himoyalash va avtomatlashtirishda yordam beramiz — murakkab atamalarsiz va kutilmagan xarajatlarsiz.",
+    "stats": {
+      "clients": {
+        "value": 120,
+        "suffix": "+",
+        "label": "Mamnun mijozlar"
+      },
+      "projects": {
+        "value": 340,
+        "suffix": "+",
+        "label": "Bajarilgan ishlar"
+      },
+      "years": {
+        "value": 5,
+        "suffix": "",
+        "label": "Yillik tajriba"
+      },
+      "response": {
+        "value": 30,
+        "suffix": " daq",
+        "label": "O'rtacha javob vaqti"
+      }
+    },
+    "values": {
+      "label": "Qadriyatlarimiz",
+      "title": "Biz nimaga tayanamiz",
+      "items": {
+        "honest": {
+          "title": "Halol maslahat",
+          "text": "Eng qimmatini emas, haqiqatan kerak bo'lganini tavsiya qilamiz."
+        },
+        "legal": {
+          "title": "Faqat qonuniy dasturlar",
+          "text": "Rasmiy litsenziyalar yoki ochiq kod. Pirat dasturlar yo'q."
+        },
+        "clear": {
+          "title": "Aniq muloqot",
+          "text": "Oddiy til, aniq narxlar, yashirin to'lovlarsiz."
+        },
+        "longterm": {
+          "title": "Uzoq muddatli yordam",
+          "text": "Ish tugagandan keyin ham aloqada qolamiz."
+        }
+      }
+    },
+    "cta": "Biz bilan ishlang"
+  },
+  "contact": {
+    "label": "Aloqa",
+    "title": "<hl>Loyihangiz</hl> haqida gaplashamiz",
+    "text": "Xabar yuboring, bir necha soat ichida javob beramiz. Telegram — eng tez aloqa usuli.",
+    "form": {
+      "name": "Ismingiz",
+      "namePlaceholder": "Aziz Karimov",
+      "contact": "Telefon yoki Telegram",
+      "contactPlaceholder": "+998 90 123 45 67 yoki @username",
+      "service": "Xizmat",
+      "servicePlaceholder": "Xizmatni tanlang",
+      "message": "Xabar",
+      "messagePlaceholder": "Nima kerakligini yozing…",
+      "submit": "Yuborish",
+      "sending": "Yuborilmoqda…",
+      "success": "Xabar yuborildi! Tez orada bog'lanamiz.",
+      "error": "Yuborib bo'lmadi. Telegram orqali yozing.",
+      "other": "Boshqa"
+    },
+    "direct": {
+      "title": "To'g'ridan-to'g'ri aloqa",
+      "telegram": "Telegram",
+      "phone": "Telefon",
+      "email": "Email",
+      "hours": "Ish vaqti",
+      "hoursValue": "Du–Sha, 9:00–19:00"
+    }
+  }
+}

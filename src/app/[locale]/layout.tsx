@@ -1,0 +1,108 @@
+import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
+import { Inter, Manrope } from "next/font/google";
+import { notFound } from "next/navigation";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { site } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import "../globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+});
+
+type Props = {
+  children: ReactNode;
+  params: Promise<{ locale: string }>;
+};
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export const viewport: Viewport = {
+  themeColor: "#040915",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+};
+
+export async function generateMetadata({
+  params,
+}: Omit<Props, "children">): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+
+  return {
+    metadataBase: new URL(site.url),
+    applicationName: site.name,
+    title: {
+      default: t("pages.home.title"),
+      template: `%s · ${site.name}`,
+    },
+    description: t("pages.home.description"),
+    authors: [{ name: site.name, url: site.url }],
+    creator: site.name,
+    publisher: site.name,
+    category: "technology",
+    formatDetection: { telephone: true, email: true, address: false },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+    ...buildMetadata({
+      locale,
+      page: "home",
+      title: t("pages.home.title"),
+      description: t("pages.home.description"),
+      keywords: t("keywords"),
+    }),
+  };
+}
+
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  const t = await getTranslations({ locale, namespace: "meta" });
+
+  return (
+    <html lang={locale} className={`${inter.variable} ${manrope.variable} h-full`}>
+      <body className="flex min-h-full flex-col">
+        <JsonLd
+          data={[
+            organizationSchema(locale, t("pages.home.description")),
+            websiteSchema(locale, t("pages.home.title")),
+          ]}
+        />
+        <NextIntlClientProvider>
+          <SmoothScroll />
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}
