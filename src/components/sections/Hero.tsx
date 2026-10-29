@@ -2,94 +2,88 @@
 
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { Send } from "lucide-react";
-import { gsap, useGSAP, SplitText, prefersReducedMotion } from "@/lib/gsap";
+import { ArrowDown } from "lucide-react";
+import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
 import { Container } from "@/components/layout/Container";
+import { LocalTime } from "@/components/layout/LocalTime";
 import { Button } from "@/components/ui/Button";
-import { HeroScene } from "./HeroScene";
+import { Reveal } from "@/components/motion/Reveal";
+import { SplitReveal } from "@/components/motion/SplitReveal";
+import { Marquee } from "./Marquee";
 
 export function Hero() {
   const t = useTranslations("hero");
-  const copy = useRef<HTMLDivElement>(null);
+  const root = useRef<HTMLElement>(null);
 
+  // Headline drifts up and fades as the hero scrolls away
   useGSAP(
     () => {
-      const root = copy.current;
-      if (!root) return;
-      const badge = root.querySelector<HTMLElement>("[data-badge]")!;
-      const title = root.querySelector<HTMLElement>("h1")!;
-      const text = root.querySelector<HTMLElement>("[data-text]")!;
-      const actions = root.querySelector<HTMLElement>("[data-actions]")!;
-
-      if (prefersReducedMotion()) {
-        gsap.set([badge, title, text, actions], { autoAlpha: 1 });
-        return;
-      }
-
-      // Split after fonts load so line breaks are final
-      let split: SplitText | undefined;
-      const run = () => {
-        split = SplitText.create(title, { type: "words", wordsClass: "inline-block" });
-        gsap.set([badge, title, text, actions], { autoAlpha: 1 });
-
-        gsap
-          .timeline({ defaults: { ease: "expo.out" } })
-          .from(badge, { y: 16, autoAlpha: 0, duration: 0.8 }, 0.1)
-          .from(
-            split.words,
-            { yPercent: 80, autoAlpha: 0, rotateX: -40, duration: 1.1, stagger: 0.045 },
-            0.2,
-          )
-          .from(text, { y: 24, autoAlpha: 0, duration: 0.9 }, 0.75)
-          .from(actions.children, { y: 20, autoAlpha: 0, duration: 0.8, stagger: 0.1 }, 0.95);
-      };
-
-      if (document.fonts?.status === "loaded") run();
-      else document.fonts?.ready.then(run);
-
-      return () => split?.revert();
+      if (prefersReducedMotion()) return;
+      gsap.to("[data-drift]", {
+        yPercent: -18,
+        opacity: 0.25,
+        ease: "none",
+        scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
+      });
     },
-    { scope: copy },
+    { scope: root },
   );
 
   return (
-    <section className="relative overflow-hidden pt-[76px]">
-      <div className="bg-grid pointer-events-none absolute inset-0" />
-      {/* Corner glows */}
-      <div className="pointer-events-none absolute -left-40 top-20 size-[520px] rounded-full bg-brand/20 blur-[140px]" />
-      <div className="pointer-events-none absolute -right-32 top-10 size-[480px] rounded-full bg-cyan/10 blur-[140px]" />
-
-      <Container className="relative grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:py-24">
-        <div ref={copy} className="max-w-xl [perspective:800px]">
-          <span
-            data-badge
-            className="gsap-hidden inline-flex items-center gap-2 rounded-full border border-line-strong bg-cyan/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan"
-          >
+    <section ref={root} className="relative flex min-h-[100svh] flex-col pt-16">
+      <Container className="flex flex-1 flex-col">
+        {/* Meta row */}
+        <Reveal y={8} className="grid grid-cols-2 gap-4 border-b border-line py-4 sm:grid-cols-3">
+          <p className="label">
+            <span className="text-signal">(</span>
             {t("badge")}
-          </span>
-
-          <h1 className="gsap-hidden mt-6 text-[42px] font-bold leading-[1.05] text-white sm:text-6xl lg:text-[64px]">
-            {t.rich("title", {
-              hl: (chunks) => <span className="text-cyan">{chunks}</span>,
-            })}
-          </h1>
-
-          <p data-text className="gsap-hidden mt-6 text-base leading-relaxed text-muted sm:text-lg">
-            {t("text")}
+            <span className="text-signal">)</span>
           </p>
+          <p className="label hidden text-center sm:block">
+            {t("location")} — <LocalTime />
+          </p>
+          <p className="label flex items-center justify-end gap-2 text-text">
+            <span className="relative flex size-2">
+              <span className="absolute inset-0 animate-ping rounded-full bg-signal opacity-60" />
+              <span className="relative size-2 rounded-full bg-signal" />
+            </span>
+            {t("available")}
+          </p>
+        </Reveal>
 
-          <div data-actions className="gsap-hidden mt-9 flex flex-wrap items-center gap-6">
-            <Button href="/contact" size="lg" icon={<Send />} magnetic>
-              {t("primary")}
-            </Button>
-            <Button href="/services" variant="ghost" arrow>
-              {t("secondary")}
-            </Button>
-          </div>
+        <div data-drift className="flex flex-1 items-center py-12 lg:py-16">
+          <SplitReveal as="h1" immediate delay={0.15} className="display-xl max-w-[13ch] text-text">
+            {t.rich("title", {
+              hl: (chunks) => <span className="text-signal">{chunks}</span>,
+            })}
+            <span
+              aria-hidden="true"
+              className="ml-[0.06em] inline-block h-[0.72em] w-[0.42em] translate-y-[0.04em] animate-blink bg-signal align-baseline"
+            />
+          </SplitReveal>
         </div>
 
-        <HeroScene />
+        <div className="grid items-end gap-8 pb-10 sm:grid-cols-2 lg:grid-cols-12 lg:pb-12">
+          <Reveal delay={0.6} className="lg:col-span-5">
+            <p className="max-w-md text-base leading-relaxed text-muted sm:text-lg">{t("text")}</p>
+          </Reveal>
+          <Reveal delay={0.7} className="flex flex-wrap items-center gap-3 lg:col-span-5">
+            <Button href="/contact" size="lg" arrow magnetic>
+              {t("primary")}
+            </Button>
+            <Button href="/services" size="lg" variant="outline">
+              {t("secondary")}
+            </Button>
+          </Reveal>
+          <Reveal delay={0.8} className="hidden justify-end lg:col-span-2 lg:flex">
+            <span className="label flex items-center gap-2">
+              {t("scroll")} <ArrowDown className="size-3.5 animate-bounce text-signal" />
+            </span>
+          </Reveal>
+        </div>
       </Container>
+
+      <Marquee />
     </section>
   );
 }

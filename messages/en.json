@@ -36,7 +36,10 @@
     "title": "Your Tech Partner for a <hl>Smarter Tomorrow</hl>",
     "text": "Compute provides reliable IT services, helping individuals and businesses get the most out of technology. From system setup to web development — we've got you covered.",
     "primary": "Contact Us",
-    "secondary": "Our Services"
+    "secondary": "Our Services",
+    "location": "Tashkent, UZ",
+    "available": "Available now",
+    "scroll": "Scroll"
   },
   "services": {
     "label": "Our Services",
@@ -168,7 +171,13 @@
     "telegram": "Telegram",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "channel": "Telegram channel"
+    "channel": "Telegram channel",
+    "navTitle": "Pages",
+    "contactTitle": "Contact",
+    "timeTitle": "Local time",
+    "location": "Tashkent, Uzbekistan",
+    "fastest": "Fastest reply — Telegram",
+    "top": "Back to top"
   },
   "about": {
     "label": "About Us",

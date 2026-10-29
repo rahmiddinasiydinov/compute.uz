@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
@@ -20,8 +20,14 @@ const inter = Inter({
   display: "swap",
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin", "cyrillic"],
   display: "swap",
 });
@@ -36,7 +42,7 @@ export function generateStaticParams() {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#040915",
+  themeColor: "#0b0b0a",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
@@ -88,7 +94,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   const t = await getTranslations({ locale, namespace: "meta" });
 
   return (
-    <html lang={locale} className={`${inter.variable} ${manrope.variable} h-full`}>
+    <html lang={locale} className={`${inter.variable} ${interTight.variable} ${jetbrains.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <JsonLd
           data={[
@@ -99,7 +105,9 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider>
           <SmoothScroll />
           <Navbar />
-          <main className="flex-1">{children}</main>
+          {/* Opaque and above the footer so it can slide off and reveal it. At least
+              one screen tall, so short pages never show the footer before scrolling. */}
+          <main className="relative z-10 min-h-svh flex-1 bg-bg">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

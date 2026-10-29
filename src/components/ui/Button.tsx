@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { Magnetic } from "@/components/motion/Magnetic";
@@ -24,20 +24,35 @@ type ButtonProps = BaseProps & { href?: undefined } & Omit<
   >;
 
 const base =
-  "group inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition-[transform,box-shadow,background-color,border-color,color] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:pointer-events-none disabled:opacity-60";
+  "group relative inline-flex items-center justify-center gap-2.5 rounded-full font-medium whitespace-nowrap transition-[transform,background-color,border-color,color] duration-200 ease-[var(--ease-out)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
-  primary:
-    "bg-[linear-gradient(90deg,#4fe9ff_0%,#22cdf5_100%)] text-[#03111f] shadow-[0_10px_30px_-10px_rgba(46,224,255,0.8)] hover:shadow-[0_14px_40px_-10px_rgba(46,224,255,0.95)] hover:brightness-110",
-  outline:
-    "border border-line-strong bg-white/[0.02] text-cyan-soft hover:bg-cyan/10 hover:border-cyan/50",
-  ghost: "text-text hover:text-cyan px-0!",
+  primary: "bg-signal text-ink hover:bg-text",
+  outline: "border border-line-strong text-text hover:border-text",
+  ghost: "px-0! text-text",
 };
 
 const sizes: Record<Size, string> = {
-  md: "h-11 px-6 text-sm",
-  lg: "h-13 px-7 text-[15px]",
+  md: "h-11 px-5 text-sm",
+  lg: "h-14 px-7 text-[15px]",
 };
+
+/** Label rolls up on hover: a second copy slides in from below. */
+function Roll({ children }: { children: ReactNode }) {
+  return (
+    <span className="relative block overflow-hidden">
+      <span className="block transition-transform duration-300 ease-[var(--ease-out)] group-hover:-translate-y-full">
+        {children}
+      </span>
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 block translate-y-full transition-transform duration-300 ease-[var(--ease-out)] group-hover:translate-y-0"
+      >
+        {children}
+      </span>
+    </span>
+  );
+}
 
 export function Button(props: LinkProps | ButtonProps) {
   const {
@@ -56,9 +71,9 @@ export function Button(props: LinkProps | ButtonProps) {
   const content = (
     <>
       {icon && <span className="shrink-0 [&>svg]:size-4">{icon}</span>}
-      <span>{children}</span>
+      <Roll>{children}</Roll>
       {arrow && (
-        <ArrowRight className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+        <ArrowUpRight className="size-4 shrink-0 transition-transform duration-300 ease-[var(--ease-out)] group-hover:rotate-45" />
       )}
     </>
   );

@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
-import { CheckCircle2, ChevronDown, Send, XCircle } from "lucide-react";
+import { CheckCircle2, ChevronDown, XCircle } from "lucide-react";
 import { serviceKeys } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
@@ -11,7 +11,9 @@ import { cn } from "@/lib/cn";
 type Status = "idle" | "sending" | "success" | "error";
 
 const field =
-  "w-full rounded-xl border border-line bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-dim outline-none transition-[border-color,box-shadow] duration-300 focus:border-cyan/60 focus:shadow-[0_0_0_3px_rgba(46,224,255,0.12)]";
+  "w-full rounded-none border-0 border-b border-line-strong bg-transparent px-0 py-3 font-sans text-lg normal-case tracking-normal text-text placeholder:text-dim outline-none transition-colors duration-200 focus:border-signal";
+
+const labelCls = "flex flex-col gap-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted focus-within:text-signal";
 
 export function ContactForm() {
   const t = useTranslations("contact.form");
@@ -38,20 +40,20 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="glass relative rounded-3xl p-6 sm:p-8" noValidate>
-      <div className="grid gap-5 sm:grid-cols-2">
-        <label className="flex flex-col gap-2 text-sm font-medium text-text">
+    <form onSubmit={onSubmit} className="relative" noValidate>
+      <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2">
+        <label className={labelCls}>
           {t("name")}
           <input name="name" required minLength={2} placeholder={t("namePlaceholder")} className={field} />
         </label>
-        <label className="flex flex-col gap-2 text-sm font-medium text-text">
+        <label className={labelCls}>
           {t("contact")}
           <input name="contact" required minLength={3} placeholder={t("contactPlaceholder")} className={field} />
         </label>
-        <label className="flex flex-col gap-2 text-sm font-medium text-text sm:col-span-2">
+        <label className={cn(labelCls, "sm:col-span-2")}>
           {t("service")}
           <span className="relative">
-            <select name="service" defaultValue="" className={cn(field, "appearance-none pr-10")}>
+            <select name="service" defaultValue="" className={cn(field, "appearance-none pr-10 [&>option]:bg-bg")}>
               <option value="" disabled>
                 {t("servicePlaceholder")}
               </option>
@@ -62,16 +64,16 @@ export function ContactForm() {
               ))}
               <option value={t("other")}>{t("other")}</option>
             </select>
-            <ChevronDown className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-dim" />
+            <ChevronDown className="pointer-events-none absolute right-0 top-1/2 size-4 -translate-y-1/2 text-dim" />
           </span>
         </label>
-        <label className="flex flex-col gap-2 text-sm font-medium text-text sm:col-span-2">
+        <label className={cn(labelCls, "sm:col-span-2")}>
           {t("message")}
           <textarea
             name="message"
             required
             minLength={5}
-            rows={5}
+            rows={4}
             placeholder={t("messagePlaceholder")}
             className={cn(field, "resize-y")}
           />
@@ -86,8 +88,8 @@ export function ContactForm() {
         />
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
-        <Button type="submit" size="lg" icon={<Send />} disabled={status === "sending"}>
+      <div className="mt-12 flex flex-wrap items-center justify-between gap-4">
+        <Button type="submit" size="lg" arrow disabled={status === "sending"}>
           {status === "sending" ? t("sending") : t("submit")}
         </Button>
 
@@ -95,10 +97,10 @@ export function ContactForm() {
           {status === "success" && (
             <motion.p
               key="ok"
-              initial={{ opacity: 0, x: 12 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, transform: "translateX(12px)" }}
+              animate={{ opacity: 1, transform: "translateX(0px)" }}
               exit={{ opacity: 0 }}
-              className="inline-flex items-center gap-2 text-sm text-cyan"
+              className="inline-flex items-center gap-2 text-sm text-signal"
             >
               <CheckCircle2 className="size-4" /> {t("success")}
             </motion.p>
@@ -106,8 +108,8 @@ export function ContactForm() {
           {status === "error" && (
             <motion.p
               key="err"
-              initial={{ opacity: 0, x: 12 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, transform: "translateX(12px)" }}
+              animate={{ opacity: 1, transform: "translateX(0px)" }}
               exit={{ opacity: 0 }}
               className="inline-flex items-center gap-2 text-sm text-red-400"
             >

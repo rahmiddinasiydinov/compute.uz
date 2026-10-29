@@ -1,19 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Menu, Send, X } from "lucide-react";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-} from "motion/react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { Link, usePathname } from "@/i18n/navigation";
+import { site } from "@/lib/site";
 import { cn } from "@/lib/cn";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { LocaleSwitcher } from "./LocaleSwitcher";
+import { LocalTime } from "./LocalTime";
 import { Button } from "@/components/ui/Button";
 
 const links = [
@@ -22,6 +18,8 @@ const links = [
   { href: "/about", key: "about" },
   { href: "/contact", key: "contact" },
 ] as const;
+
+const EASE = [0.23, 1, 0.32, 1] as const;
 
 export function Navbar() {
   const t = useTranslations("nav");
@@ -32,52 +30,46 @@ export function Navbar() {
 
   useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 24));
 
+  // Lock page scroll while the menu is open
+  useEffect(() => {
+    document.documentElement.style.overflow = open ? "hidden" : "";
+  }, [open]);
+
   return (
-    <motion.header
-      initial={{ y: -24, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed inset-x-0 top-0 z-50"
-    >
+    <header className="fixed inset-x-0 top-0 z-50">
       <div
         className={cn(
-          "transition-[background-color,border-color,backdrop-filter] duration-500",
-          scrolled
-            ? "border-b border-line bg-bg/70 backdrop-blur-xl"
-            : "border-b border-transparent bg-transparent",
+          "border-b transition-[background-color,border-color] duration-300",
+          scrolled || open ? "border-line bg-bg/80 backdrop-blur-md" : "border-transparent",
         )}
       >
-        <Container className="flex h-[76px] items-center justify-between">
+        <Container className="flex h-16 items-center justify-between gap-6">
           <Logo />
 
-          <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
-            {links.map(({ href, key }) => {
+          <nav className="hidden items-center gap-7 md:flex" aria-label="Main">
+            {links.map(({ href, key }, i) => {
               const active = pathname === href;
               return (
                 <Link
                   key={key}
                   href={href}
                   className={cn(
-                    "relative px-4 py-2 text-sm font-medium transition-colors duration-300",
-                    active ? "text-cyan" : "text-muted hover:text-white",
+                    "group flex items-baseline gap-1.5 text-sm transition-colors duration-200",
+                    active ? "text-text" : "text-muted hover:text-text",
                   )}
                 >
-                  {t(key)}
-                  {active && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute inset-x-4 -bottom-0.5 h-px bg-cyan shadow-glow"
-                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                    />
-                  )}
+                  <span className={cn("font-mono text-[10px]", active ? "text-signal" : "text-dim")}>
+                    0{i + 1}
+                  </span>
+                  <span className="link-u">{t(key)}</span>
                 </Link>
               );
             })}
           </nav>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-6 md:flex">
             <LocaleSwitcher />
-            <Button href="/contact" variant="outline" icon={<Send />}>
+            <Button href="/contact" size="md" className="h-9 px-4 text-[13px]">
               {t("cta")}
             </Button>
           </div>
@@ -85,11 +77,25 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="flex size-11 items-center justify-center rounded-full border border-line text-white md:hidden"
+            className="relative flex h-10 items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text md:hidden"
             aria-label={open ? t("close") : t("menu")}
             aria-expanded={open}
           >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            <span className="relative block h-2.5 w-5">
+              <span
+                className={cn(
+                  "absolute inset-x-0 top-0 h-px bg-current transition-transform duration-300 ease-[var(--ease-out)]",
+                  open && "translate-y-[5px] rotate-45",
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute inset-x-0 bottom-0 h-px bg-current transition-transform duration-300 ease-[var(--ease-out)]",
+                  open && "-translate-y-[4px] -rotate-45",
+                )}
+              />
+            </span>
+            {open ? t("close") : t("menu")}
           </button>
         </Container>
       </div>
@@ -98,44 +104,55 @@ export function Navbar() {
         {open && (
           <motion.div
             key="mobile"
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="border-b border-line bg-bg/95 backdrop-blur-xl md:hidden"
+            initial={{ clipPath: "inset(0 0 100% 0)" }}
+            animate={{ clipPath: "inset(0 0 0% 0)" }}
+            exit={{ clipPath: "inset(0 0 100% 0)", transition: { duration: 0.25, ease: EASE } }}
+            transition={{ duration: 0.5, ease: EASE }}
+            className="fixed inset-x-0 bottom-0 top-16 bg-bg md:hidden"
+            // Any link tapped inside the menu navigates away, so close it
+            onClick={(e) => {
+              if ((e.target as HTMLElement).closest("a")) setOpen(false);
+            }}
           >
-            <Container className="flex flex-col gap-2 py-5">
-              {links.map(({ href, key }, i) => (
-                <motion.div
-                  key={key}
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i, duration: 0.35 }}
-                >
-                  <Link
-                    href={href}
-                    onClick={() => setOpen(false)}
-                    className={cn(
-                      "block rounded-xl px-4 py-3 text-base font-medium",
-                      pathname === href
-                        ? "bg-cyan/10 text-cyan"
-                        : "text-text hover:bg-white/5",
-                    )}
+            <Container className="flex h-full flex-col justify-between pb-8 pt-6">
+              <nav className="flex flex-col" aria-label="Mobile">
+                {links.map(({ href, key }, i) => (
+                  <motion.div
+                    key={key}
+                    initial={{ opacity: 0, transform: "translateY(24px)" }}
+                    animate={{ opacity: 1, transform: "translateY(0px)" }}
+                    transition={{ delay: 0.08 + 0.05 * i, duration: 0.5, ease: EASE }}
+                    className="border-b border-line"
                   >
-                    {t(key)}
-                  </Link>
-                </motion.div>
-              ))}
-              <div className="mt-3 flex items-center justify-between gap-3">
-                <LocaleSwitcher />
-                <Button href="/contact" icon={<Send />}>
+                    <Link
+                      href={href}
+                      className={cn(
+                        "flex items-baseline gap-3 py-4 font-display text-[40px] font-semibold leading-none tracking-[-0.045em]",
+                        pathname === href ? "text-signal" : "text-text",
+                      )}
+                    >
+                      <span className="font-mono text-xs font-normal tracking-normal text-dim">0{i + 1}</span>
+                      {t(key)}
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+              <div className="flex flex-col gap-6">
+                <Button href="/contact" size="lg" arrow className="w-full">
                   {t("cta")}
                 </Button>
+                <div className="flex items-center justify-between">
+                  <LocaleSwitcher />
+                  <a href={site.phoneHref} className="label text-text">
+                    {site.phone}
+                  </a>
+                </div>
+                <LocalTime className="label" />
               </div>
             </Container>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }

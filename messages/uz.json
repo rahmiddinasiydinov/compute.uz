@@ -36,7 +36,10 @@
     "title": "<hl>Aqlli kelajak</hl> uchun texnologik hamkoringiz",
     "text": "Compute ishonchli IT xizmatlarni taqdim etadi va odamlar hamda bizneslarga texnologiyadan maksimal foyda olishga yordam beradi. Tizim sozlashdan veb-dasturlashgacha — hammasi biz bilan.",
     "primary": "Bog'lanish",
-    "secondary": "Xizmatlarimiz"
+    "secondary": "Xizmatlarimiz",
+    "location": "Toshkent, UZ",
+    "available": "Buyurtma qabul qilamiz",
+    "scroll": "Pastga"
   },
   "services": {
     "label": "Xizmatlarimiz",
@@ -168,7 +171,13 @@
     "telegram": "Telegram",
     "privacy": "Maxfiylik siyosati",
     "terms": "Foydalanish shartlari",
-    "channel": "Telegram kanal"
+    "channel": "Telegram kanal",
+    "navTitle": "Sahifalar",
+    "contactTitle": "Aloqa",
+    "timeTitle": "Mahalliy vaqt",
+    "location": "Toshkent, O‘zbekiston",
+    "fastest": "Eng tez javob — Telegramda",
+    "top": "Yuqoriga"
   },
   "about": {
     "label": "Biz haqimizda",

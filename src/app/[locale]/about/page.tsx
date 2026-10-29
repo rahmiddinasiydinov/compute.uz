@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { Handshake, MessageCircle, ScrollText, ShieldCheck, type LucideIcon } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { Counter } from "@/components/motion/Counter";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
-import { SpotlightCard } from "@/components/motion/SpotlightCard";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildMetadata } from "@/lib/seo";
@@ -16,12 +14,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 type Stat = { value: number; suffix: string; label: string };
 
-const values: { key: "honest" | "legal" | "clear" | "longterm"; Icon: LucideIcon }[] = [
-  { key: "honest", Icon: Handshake },
-  { key: "legal", Icon: ShieldCheck },
-  { key: "clear", Icon: MessageCircle },
-  { key: "longterm", Icon: ScrollText },
-];
+const values = ["honest", "legal", "clear", "longterm"] as const;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -49,69 +42,67 @@ export default async function AboutPage({ params }: Props) {
           { page: "about", name: nav("about") },
         ])}
       />
-      <section className="relative overflow-hidden pt-[76px]">
-        <div className="pointer-events-none absolute -right-40 top-0 size-[480px] rounded-full bg-cyan/10 blur-[140px]" />
-        <Container className="py-16 lg:py-24">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-center">
-            <div>
-              <SectionHeading
-                as="h1"
-                label={t("label")}
-                title={t.rich("title", {
-                  hl: (chunks) => <span className="text-cyan">{chunks}</span>,
-                })}
-                text={t("text")}
-                titleClassName="lg:text-[52px]"
-              />
-              <Reveal delay={0.2} className="mt-8">
-                <Button href="/contact" size="lg" arrow magnetic>
-                  {t("cta")}
-                </Button>
-              </Reveal>
+      <section className="pt-16">
+        <Container className="pt-20 lg:pt-32">
+          <SectionHeading
+            as="h1"
+            index="A"
+            label={t("label")}
+            size="lg"
+            title={t.rich("title", {
+              hl: (chunks) => <span className="text-signal">{chunks}</span>,
+            })}
+            text={t("text")}
+          />
+          <Reveal delay={0.2} className="mt-10 lg:grid lg:grid-cols-12 lg:gap-8">
+            <div className="lg:col-span-9 lg:col-start-4">
+              <Button href="/contact" size="lg" arrow magnetic>
+                {t("cta")}
+              </Button>
             </div>
+          </Reveal>
 
-            <Stagger className="grid grid-cols-2 gap-4" stagger={0.1}>
-              {Object.entries(stats).map(([key, s]) => (
-                <StaggerItem key={key}>
-                  <SpotlightCard className="p-6" lift={false}>
-                    <Counter
-                      value={s.value}
-                      suffix={s.suffix}
-                      className="font-display text-4xl font-bold text-white sm:text-5xl"
-                    />
-                    <p className="mt-2 text-sm text-muted">{s.label}</p>
-                  </SpotlightCard>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-y border-line bg-bg-2 py-20 lg:py-24">
-        <Container>
-          <SectionHeading label={t("values.label")} title={t("values.title")} align="center" />
-          <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
-            {values.map(({ key, Icon }) => (
-              <StaggerItem key={key}>
-                <SpotlightCard className="h-full p-6">
-                  <span className="ring-tile">
-                    <Icon className="size-5" strokeWidth={1.7} />
-                  </span>
-                  <h3 className="mt-5 font-semibold text-white">{t(`values.items.${key}.title`)}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {t(`values.items.${key}.text`)}
-                  </p>
-                </SpotlightCard>
+          <Stagger className="mt-20 grid grid-cols-2 border-t border-line lg:mt-28 lg:grid-cols-4" stagger={0.08}>
+            {Object.entries(stats).map(([key, s]) => (
+              <StaggerItem
+                key={key}
+                className="border-b border-line py-8 pr-4 odd:border-r odd:pr-6 even:pl-6 lg:border-b-0 lg:border-r lg:px-6 lg:first:pl-0 lg:last:border-r-0"
+              >
+                <Counter
+                  value={s.value}
+                  suffix={s.suffix}
+                  className="block font-display text-5xl font-semibold tracking-[-0.06em] text-text sm:text-6xl lg:text-7xl"
+                />
+                <p className="label mt-4">{s.label}</p>
               </StaggerItem>
             ))}
           </Stagger>
         </Container>
       </section>
 
-      <div className="pt-16">
-        <CtaBanner />
-      </div>
+      <section className="mt-24 bg-bg-2 py-24 lg:mt-36 lg:py-36">
+        <Container>
+          <SectionHeading index="B" label={t("values.label")} title={t("values.title")} />
+          <Stagger className="mt-16 border-t border-line lg:mt-24" stagger={0.08}>
+            {values.map((key, i) => (
+              <StaggerItem
+                key={key}
+                className="grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-line py-8 lg:gap-x-8 lg:py-10"
+              >
+                <span className="col-span-2 font-mono text-xs text-signal lg:col-span-3">0{i + 1}</span>
+                <h3 className="col-span-10 font-display text-3xl font-semibold tracking-[-0.045em] text-text lg:col-span-5 lg:text-4xl">
+                  {t(`values.items.${key}.title`)}
+                </h3>
+                <p className="col-span-10 col-start-3 text-sm leading-relaxed text-muted lg:col-span-4 lg:col-start-auto lg:text-base">
+                  {t(`values.items.${key}.text`)}
+                </p>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </Container>
+      </section>
+
+      <CtaBanner />
     </>
   );
 }

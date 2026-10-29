@@ -3,7 +3,7 @@
 import { motion, type Variants } from "motion/react";
 import type { ReactNode } from "react";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
+const EASE = [0.23, 1, 0.32, 1] as const;
 
 type RevealProps = {
   children: ReactNode;
@@ -18,16 +18,16 @@ export function Reveal({
   children,
   className,
   delay = 0,
-  y = 28,
+  y = 20,
   once = true,
 }: RevealProps) {
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, transform: `translateY(${y}px)` }}
+      whileInView={{ opacity: 1, transform: "translateY(0px)" }}
       viewport={{ once, margin: "-80px 0px" }}
-      transition={{ duration: 0.8, delay, ease: EASE }}
+      transition={{ duration: 0.7, delay, ease: EASE }}
     >
       {children}
     </motion.div>
@@ -36,14 +36,18 @@ export function Reveal({
 
 const container: Variants = {
   hidden: {},
-  show: (stagger: number = 0.08) => ({
+  show: (stagger: number = 0.06) => ({
     transition: { staggerChildren: stagger, delayChildren: 0.05 },
   }),
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 24, scale: 0.98 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: EASE } },
+  hidden: { opacity: 0, transform: "translateY(16px)" },
+  show: {
+    opacity: 1,
+    transform: "translateY(0px)",
+    transition: { duration: 0.6, ease: EASE },
+  },
 };
 
 type StaggerProps = {
@@ -53,7 +57,7 @@ type StaggerProps = {
 };
 
 /** Parent for a grid/list: children with <StaggerItem> animate one after another. */
-export function Stagger({ children, className, stagger = 0.08 }: StaggerProps) {
+export function Stagger({ children, className, stagger = 0.06 }: StaggerProps) {
   return (
     <motion.div
       className={className}

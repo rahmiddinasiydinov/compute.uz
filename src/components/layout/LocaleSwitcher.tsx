@@ -2,7 +2,6 @@
 
 import { useLocale } from "next-intl";
 import { useParams } from "next/navigation";
-import { motion } from "motion/react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
@@ -24,35 +23,27 @@ export function LocaleSwitcher({ className }: { className?: string }) {
 
   return (
     <div
-      className={cn(
-        "relative flex items-center rounded-full border border-line bg-white/[0.02] p-1 text-[11px] font-semibold uppercase tracking-wider",
-        className,
-      )}
+      className={cn("flex items-center font-mono text-[11px] uppercase tracking-[0.14em]", className)}
       role="group"
       aria-label="Language"
     >
-      {routing.locales.map((l) => {
+      {routing.locales.map((l, i) => {
         const active = l === locale;
         return (
-          <button
-            key={l}
-            type="button"
-            onClick={() => change(l)}
-            className={cn(
-              "relative z-10 rounded-full px-2.5 py-1 transition-colors duration-300",
-              active ? "text-[#03111f]" : "text-muted hover:text-white",
-            )}
-            aria-pressed={active}
-          >
-            {active && (
-              <motion.span
-                layoutId="locale-pill"
-                className="absolute inset-0 -z-10 rounded-full bg-cyan"
-                transition={{ type: "spring", stiffness: 400, damping: 32 }}
-              />
-            )}
-            {l}
-          </button>
+          <span key={l} className="flex items-center">
+            {i > 0 && <span className="px-1.5 text-dim">/</span>}
+            <button
+              type="button"
+              onClick={() => change(l)}
+              className={cn(
+                "py-1 transition-colors duration-200",
+                active ? "text-signal" : "text-muted hover:text-text",
+              )}
+              aria-pressed={active}
+            >
+              {l}
+            </button>
+          </span>
         );
       })}
     </div>
