@@ -1,5 +1,5 @@
 import { routing } from "@/i18n/routing";
-import { site } from "./site";
+import { servicePrices, site, type ServiceKey } from "./site";
 import { absoluteUrl, pagePaths, type PageKey } from "./seo";
 
 const ORG_ID = `${site.url}/#organization`;
@@ -18,8 +18,18 @@ export function organizationSchema(locale: string, description: string) {
     telephone: site.phone,
     email: site.email,
     sameAs: [site.channel, site.telegram],
-    areaServed: { "@type": "Country", name: "Uzbekistan" },
-    address: { "@type": "PostalAddress", addressCountry: "UZ" },
+    priceRange: "100 000 – 3 000 000 UZS",
+    currenciesAccepted: "UZS",
+    knowsLanguage: ["uz", "ru", "en"],
+    areaServed: [
+      { "@type": "City", name: "Tashkent" },
+      { "@type": "Country", name: "Uzbekistan" },
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Tashkent",
+      addressCountry: "UZ",
+    },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -63,7 +73,7 @@ export function breadcrumbSchema(locale: string, items: { page: PageKey; name: s
 
 export function servicesSchema(
   locale: string,
-  services: { name: string; description: string }[],
+  services: { key: ServiceKey; name: string; description: string }[],
 ) {
   return {
     "@context": "https://schema.org",
@@ -76,8 +86,19 @@ export function servicesSchema(
         name: s.name,
         description: s.description,
         provider: { "@id": ORG_ID },
-        areaServed: { "@type": "Country", name: "Uzbekistan" },
+        areaServed: { "@type": "City", name: "Tashkent" },
         url: absoluteUrl(locale, pagePaths.services),
+        ...(servicePrices[s.key] !== null && {
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "UZS",
+            priceSpecification: {
+              "@type": "PriceSpecification",
+              minPrice: servicePrices[s.key],
+              priceCurrency: "UZS",
+            },
+          },
+        }),
       },
     })),
   };
@@ -90,5 +111,17 @@ export function contactPageSchema(locale: string, name: string) {
     name,
     url: absoluteUrl(locale, pagePaths.contact),
     about: { "@id": ORG_ID },
+  };
+}
+
+export function faqSchema(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
   };
 }

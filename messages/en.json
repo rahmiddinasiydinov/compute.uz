@@ -1,23 +1,23 @@
 {
   "meta": {
-    "title": "compute.uz — IT services for your success",
+    "title": "compute.uz — IT services in Tashkent: Windows, websites, bots",
     "description": "Reliable IT services in Uzbekistan: OS and software installation, business websites, process automation and Telegram bots.",
     "keywords": "IT services Uzbekistan, Windows installation Tashkent, Linux setup, software installation, business website development, Telegram bot development, business automation, compute.uz",
     "pages": {
       "home": {
-        "title": "compute.uz — IT services for your success",
+        "title": "compute.uz — IT services in Tashkent: Windows, websites, bots",
         "description": "Reliable IT services in Uzbekistan: OS and software installation, business websites, process automation and Telegram bots. Fast, secure, fairly priced."
       },
       "services": {
-        "title": "IT Services — OS setup, software, websites, automation",
+        "title": "IT services and prices in Tashkent",
         "description": "OS installation (Windows/Linux), software setup, business websites on Next.js, Telegram bots and process automation. Only legal software. Prices from 100 000 UZS."
       },
       "about": {
-        "title": "About compute.uz — small team, serious results",
+        "title": "About us — small team, serious results",
         "description": "IT service studio in Uzbekistan. Honest advice, legal software only, clear communication and long-term support for people and small businesses."
       },
       "contact": {
-        "title": "Contact compute.uz — get a quote today",
+        "title": "Contact us — get a quote today",
         "description": "Tell us what you need and get a reply within hours. Telegram, phone or email. Available 24/7."
       }
     }
@@ -39,7 +39,8 @@
     "secondary": "Our Services",
     "location": "Tashkent, UZ",
     "available": "Available now",
-    "scroll": "Scroll"
+    "scroll": "Scroll",
+    "seoTitle": "IT services in Tashkent"
   },
   "services": {
     "label": "Our Services",
@@ -115,6 +116,36 @@
         "automation": "on request",
         "legal": "free advice"
       }
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Questions, answered",
+      "items": [
+        {
+          "q": "How much does Windows installation cost?",
+          "a": "A clean Windows 10/11 or Linux installation starts from 150 000 UZS and includes drivers and updates. Data backup, migration and performance tuning can be added."
+        },
+        {
+          "q": "How much does a business website cost?",
+          "a": "Business websites start from 3 000 000 UZS. We build on Next.js: fast, SEO-ready and multilingual (UZ / RU / EN), and we can set up hosting and the domain for you."
+        },
+        {
+          "q": "Can you build a Telegram bot for my business?",
+          "a": "Yes. We build Telegram bots and mini-apps, order flows, CRM and internal dashboards, and connect them to the tools you already use. Pricing is on request."
+        },
+        {
+          "q": "Do you install pirated software?",
+          "a": "No. We only install official distributions or free and open-source alternatives, and we explain licensing in plain language."
+        },
+        {
+          "q": "How quickly do you reply?",
+          "a": "We work 24/7, every day. Average response time is about 30 minutes, and Telegram is the fastest way to reach us."
+        },
+        {
+          "q": "How do I place an order?",
+          "a": "Message us on Telegram, call, or use the contact form. Tell us what you need and we will reply with a solution and a fixed quote, with no hidden fees."
+        }
+      ]
     }
   },
   "why": {

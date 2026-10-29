@@ -67,13 +67,13 @@ export function buildMetadata({ locale, page, title, description, keywords }: Bu
       alternateLocale: routing.locales
         .filter((l) => l !== locale)
         .map((l) => ogLocales[l]),
-      images: [{ url: image, width: 1200, height: 630, alt: site.name }],
+      images: [{ url: image, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [image],
+      images: [{ url: image, alt: title }],
     },
   };
 }

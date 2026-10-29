@@ -1,23 +1,23 @@
 {
   "meta": {
-    "title": "compute.uz — Muvaffaqiyatingiz uchun IT xizmatlar",
+    "title": "compute.uz — Toshkentda IT xizmatlar: Windows, sayt, botlar",
     "description": "O'zbekistonda ishonchli IT xizmatlar: OS va dasturlar o'rnatish, biznes uchun saytlar, jarayonlarni avtomatlashtirish va Telegram botlar.",
     "keywords": "IT xizmatlar O‘zbekiston, Windows o‘rnatish Toshkent, Linux o‘rnatish, dastur o‘rnatish, biznes uchun sayt yaratish, Telegram bot yaratish, biznesni avtomatlashtirish, compute.uz",
     "pages": {
       "home": {
-        "title": "compute.uz — Muvaffaqiyatingiz uchun IT xizmatlar",
+        "title": "compute.uz — Toshkentda IT xizmatlar: Windows, sayt, botlar",
         "description": "O‘zbekistonda ishonchli IT xizmatlar: OS va dasturlar o‘rnatish, biznes uchun saytlar, jarayonlarni avtomatlashtirish va Telegram botlar. Tez, xavfsiz, hamyonbop."
       },
       "services": {
-        "title": "IT xizmatlar — OS, dasturlar, saytlar, avtomatlashtirish",
+        "title": "Toshkentda IT xizmatlar va narxlar",
         "description": "Windows/Linux o‘rnatish, dasturlar sozlash, Next.js’da biznes saytlar, Telegram botlar va avtomatlashtirish. Faqat qonuniy dasturlar. Narxlar 100 000 so‘mdan."
       },
       "about": {
-        "title": "compute.uz haqida — kichik jamoa, jiddiy natijalar",
+        "title": "Biz haqimizda — kichik jamoa, jiddiy natijalar",
         "description": "O‘zbekistondagi IT xizmatlar studiyasi. Halol maslahat, faqat qonuniy dasturlar, aniq muloqot va uzoq muddatli yordam."
       },
       "contact": {
-        "title": "compute.uz bilan bog‘lanish — bugun narx oling",
+        "title": "Aloqa — bugun narx oling",
         "description": "Nima kerakligini ayting va bir necha soat ichida javob oling. Telegram, telefon yoki email. 24/7 ishlaymiz."
       }
     }
@@ -39,7 +39,8 @@
     "secondary": "Xizmatlarimiz",
     "location": "Toshkent, UZ",
     "available": "Buyurtma qabul qilamiz",
-    "scroll": "Pastga"
+    "scroll": "Pastga",
+    "seoTitle": "Toshkentda IT xizmatlar"
   },
   "services": {
     "label": "Xizmatlarimiz",
@@ -115,6 +116,36 @@
         "automation": "so'rov bo'yicha",
         "legal": "bepul maslahat"
       }
+    },
+    "faq": {
+      "label": "Savollar",
+      "title": "Ko‘p beriladigan savollar",
+      "items": [
+        {
+          "q": "Windows o‘rnatish qancha turadi?",
+          "a": "Windows 10/11 yoki Linuxni toza o‘rnatish 150 000 so‘mdan boshlanadi, drayverlar va yangilanishlar kiradi. Qo‘shimcha ravishda zaxira nusxa, ma’lumotlarni ko‘chirish va optimallashtirish mumkin."
+        },
+        {
+          "q": "Biznes uchun sayt qancha turadi?",
+          "a": "Biznes saytlar 3 000 000 so‘mdan boshlanadi. Next.js asosida qilamiz: tez, SEOga tayyor va ko‘p tilli (UZ / RU / EN), hosting va domenni ham sozlab beramiz."
+        },
+        {
+          "q": "Biznesim uchun Telegram bot qilib bera olasizmi?",
+          "a": "Ha. Telegram botlar va mini-ilovalar, buyurtma qabul qilish, CRM va ichki panellar yaratamiz hamda ularni siz ishlatayotgan xizmatlar bilan bog‘laymiz. Narxi — so‘rov bo‘yicha."
+        },
+        {
+          "q": "Qaroqchilik dasturlarini o‘rnatasizmi?",
+          "a": "Yo‘q. Faqat rasmiy distributivlar yoki bepul open-source muqobillarni o‘rnatamiz va litsenziya masalalarini oddiy tilda tushuntiramiz."
+        },
+        {
+          "q": "Qanchalik tez javob berasiz?",
+          "a": "Har kuni 24/7 ishlaymiz. O‘rtacha javob vaqti taxminan 30 daqiqa, eng tez yo‘li — Telegram."
+        },
+        {
+          "q": "Qanday buyurtma beraman?",
+          "a": "Telegramda yozing, qo‘ng‘iroq qiling yoki aloqa formasini to‘ldiring. Nima kerakligini ayting — yechim va yashirin to‘lovlarsiz aniq narx bilan javob beramiz."
+        }
+      ]
     }
   },
   "why": {

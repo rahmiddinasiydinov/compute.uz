@@ -34,11 +34,12 @@ export function Hero() {
       <Container className="flex flex-1 flex-col">
         {/* Meta row */}
         <Reveal y={8} className="grid grid-cols-2 gap-4 border-b border-line py-4 sm:grid-cols-3">
-          <p className="label">
+          {/* Real page topic for search engines; the slogan below is display copy */}
+          <h1 className="label">
             <span className="text-signal">(</span>
-            {t("badge")}
+            {t("seoTitle")}
             <span className="text-signal">)</span>
-          </p>
+          </h1>
           <p className="label hidden text-center sm:block">
             {t("location")} — <LocalTime />
           </p>
@@ -52,7 +53,7 @@ export function Hero() {
         </Reveal>
 
         <div data-drift className="flex flex-1 items-center py-12 lg:py-16">
-          <SplitReveal as="h1" immediate delay={0.15} className="display-xl max-w-[13ch] text-text">
+          <SplitReveal immediate delay={0.15} className="display-xl max-w-[13ch] text-text">
             {t.rich("title", {
               hl: (chunks) => <span className="text-signal">{chunks}</span>,
             })}

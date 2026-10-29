@@ -7,7 +7,8 @@ import { Stagger, StaggerItem } from "@/components/motion/Reveal";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildMetadata } from "@/lib/seo";
-import { breadcrumbSchema, servicesSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, servicesSchema } from "@/lib/schema";
+import { Faq } from "@/components/sections/Faq";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -27,6 +28,7 @@ export default async function ServicesPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations("services");
   const nav = await getTranslations("nav");
+  const faq = t.raw("faq.items") as { q: string; a: string }[];
 
   return (
     <>
@@ -39,10 +41,12 @@ export default async function ServicesPage({ params }: Props) {
           servicesSchema(
             locale,
             serviceKeys.map((key) => ({
+              key,
               name: t(`items.${key}.title`),
               description: t(`items.${key}.text`),
             })),
           ),
+          faqSchema(faq),
         ]}
       />
       <section className="pt-16">
@@ -94,6 +98,7 @@ export default async function ServicesPage({ params }: Props) {
           </Stagger>
         </Container>
       </section>
+      <Faq index="F" label={t("faq.label")} title={t("faq.title")} items={faq} />
       <CtaBanner />
     </>
   );

@@ -55,6 +55,14 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "meta" });
 
   return {
+    // Spread first: its plain `title` string must not override the template below
+    ...buildMetadata({
+      locale,
+      page: "home",
+      title: t("pages.home.title"),
+      description: t("pages.home.description"),
+      keywords: t("keywords"),
+    }),
     metadataBase: new URL(site.url),
     applicationName: site.name,
     title: {
@@ -66,6 +74,11 @@ export async function generateMetadata({
     creator: site.name,
     publisher: site.name,
     category: "technology",
+    // Search console ownership tokens, set per deployment
+    verification: {
+      google: process.env.GOOGLE_SITE_VERIFICATION,
+      yandex: process.env.YANDEX_VERIFICATION,
+    },
     formatDetection: { telephone: true, email: true, address: false },
     robots: {
       index: true,
@@ -78,13 +91,6 @@ export async function generateMetadata({
         "max-video-preview": -1,
       },
     },
-    ...buildMetadata({
-      locale,
-      page: "home",
-      title: t("pages.home.title"),
-      description: t("pages.home.description"),
-      keywords: t("keywords"),
-    }),
   };
 }
 
@@ -96,6 +102,10 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} className={`${inter.variable} ${interTight.variable} ${jetbrains.variable} h-full`}>
       <body className="flex min-h-full flex-col">
+        {/* Without JS the reveal animations never run: show everything they hide */}
+        <noscript>
+          <style>{`.gsap-hidden{visibility:visible!important}[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         <JsonLd
           data={[
             organizationSchema(locale, t("pages.home.description")),

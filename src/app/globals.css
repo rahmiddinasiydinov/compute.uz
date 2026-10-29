@@ -125,6 +125,26 @@ body::after {
   }
 }
 
+/* FAQ accordion: animate <details> height where supported, instant elsewhere */
+:root {
+  interpolate-size: allow-keywords;
+}
+.faq::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size 300ms var(--ease-out),
+    content-visibility 300ms allow-discrete;
+}
+.faq[open]::details-content {
+  block-size: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq::details-content {
+    transition: none;
+  }
+}
+
 /* Hide elements until GSAP is ready to animate them (avoids flash) */
 .gsap-hidden {
   visibility: hidden;
