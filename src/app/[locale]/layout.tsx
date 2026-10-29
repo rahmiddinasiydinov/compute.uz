@@ -4,6 +4,7 @@ import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { Analytics } from "@vercel/analytics/next";
 import { routing } from "@/i18n/routing";
 import { site } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
@@ -120,6 +121,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <main className="relative z-10 min-h-svh flex-1 bg-bg">{children}</main>
           <Footer />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
+import { track } from "@vercel/analytics";
 import { AnimatePresence, motion } from "motion/react";
 import { CheckCircle2, ChevronDown, XCircle } from "lucide-react";
 import { serviceKeys } from "@/lib/site";
@@ -33,6 +34,7 @@ export function ContactForm() {
       });
       if (!res.ok) throw new Error(String(res.status));
       setStatus("success");
+      track("contact_submit", { service: String(data.service || "none") });
       form.reset();
     } catch {
       setStatus("error");
