@@ -15,7 +15,7 @@ export function WhyUs() {
         <div className="grid gap-6 border-t border-line pt-6 lg:grid-cols-12 lg:gap-8">
           <Reveal y={8} className="lg:col-span-3">
             <p className="label">
-              <span className="text-signal">(02)</span> {t("label")}
+              <span className="text-signal">(03)</span> {t("label")}
             </p>
           </Reveal>
           <div className="lg:col-span-9">

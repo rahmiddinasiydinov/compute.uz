@@ -12,6 +12,10 @@
         "title": "Toshkentda IT xizmatlar va narxlar",
         "description": "Windows/Linux o‘rnatish, dasturlar sozlash, Next.js’da biznes saytlar, Telegram botlar va avtomatlashtirish. Faqat qonuniy dasturlar. Narxlar 100 000 so‘mdan."
       },
+      "showcase": {
+        "title": "Ishlarimiz — compute.uz yaratgan saytlar va loyihalar",
+        "description": "compute.uz tanlangan ishlari: biznes saytlar, onlayn vitrinalar va O‘zbekistondagi kompaniyalar uchun Telegram orqali buyurtma."
+      },
       "about": {
         "title": "Biz haqimizda — kichik jamoa, jiddiy natijalar",
         "description": "O‘zbekistondagi IT xizmatlar studiyasi. Halol maslahat, faqat qonuniy dasturlar, aniq muloqot va uzoq muddatli yordam."
@@ -25,6 +29,7 @@
   "nav": {
     "home": "Bosh sahifa",
     "services": "Xizmatlar",
+    "showcase": "Ishlarimiz",
     "about": "Biz haqimizda",
     "contact": "Aloqa",
     "cta": "Bog'lanish",
@@ -146,6 +151,24 @@
           "a": "Telegramda yozing, qo‘ng‘iroq qiling yoki aloqa formasini to‘ldiring. Nima kerakligini ayting — yechim va yashirin to‘lovlarsiz aniq narx bilan javob beramiz."
         }
       ]
+    }
+  },
+  "showcase": {
+    "label": "Ishlarimiz",
+    "title": "Biz <hl>faxrlanadigan</hl> loyihalar",
+    "text": "Haqiqiy biznes uchun haqiqiy loyihalar. Biz yaratgan ishlar bilan tanishing.",
+    "visit": "Saytni ochish",
+    "all": "Barcha loyihalar",
+    "page": {
+      "title": "<hl>Biz haqimizda</hl> gapiradigan loyihalar",
+      "text": "O‘zbekistondagi haqiqiy biznes uchun yaratgan saytlarimiz va vositalarimiz. Hammasi ishlayapti — oching va ko‘ring."
+    },
+    "items": {
+      "lucent": {
+        "title": "Lucent",
+        "category": "Atirlar butigi",
+        "text": "Toshkentdagi atirlar butigi uchun nafis onlayn vitrina. Ayollar va erkaklar uchun alohida kolleksiyalar, har bir atirning notalari, yorug‘ va qorong‘i mavzular hamda Telegram orqali to‘g‘ridan-to‘g‘ri buyurtma. O‘zbek, rus va ingliz tillarida."
+      }
     }
   },
   "why": {

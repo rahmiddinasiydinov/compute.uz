@@ -12,6 +12,10 @@
         "title": "IT services and prices in Tashkent",
         "description": "OS installation (Windows/Linux), software setup, business websites on Next.js, Telegram bots and process automation. Only legal software. Prices from 100 000 UZS."
       },
+      "showcase": {
+        "title": "Showcase — websites and projects we have built",
+        "description": "Selected work by compute.uz: business websites, online storefronts and Telegram-powered ordering for companies in Uzbekistan."
+      },
       "about": {
         "title": "About us — small team, serious results",
         "description": "IT service studio in Uzbekistan. Honest advice, legal software only, clear communication and long-term support for people and small businesses."
@@ -25,6 +29,7 @@
   "nav": {
     "home": "Home",
     "services": "Services",
+    "showcase": "Showcase",
     "about": "About",
     "contact": "Contact",
     "cta": "Get in Touch",
@@ -146,6 +151,24 @@
           "a": "Message us on Telegram, call, or use the contact form. Tell us what you need and we will reply with a solution and a fixed quote, with no hidden fees."
         }
       ]
+    }
+  },
+  "showcase": {
+    "label": "Showcase",
+    "title": "Work we are <hl>proud of</hl>",
+    "text": "Real projects for real businesses. Take a look at what we have built.",
+    "visit": "Visit site",
+    "all": "All projects",
+    "page": {
+      "title": "Projects that <hl>speak for us</hl>",
+      "text": "Websites and tools we have built for real businesses in Uzbekistan. Each one is live — open it and take a look."
+    },
+    "items": {
+      "lucent": {
+        "title": "Lucent",
+        "category": "Perfume boutique",
+        "text": "An elegant online storefront for a perfume boutique in Tashkent. Separate collections for women and men, fragrance notes for every scent, light and dark themes, and ordering straight through Telegram. Available in Uzbek, Russian and English."
+      }
     }
   },
   "why": {

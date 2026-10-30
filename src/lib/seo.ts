@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { routing, type Locale } from "@/i18n/routing";
 import { site } from "./site";
 
-export type PageKey = "home" | "services" | "about" | "contact";
+export type PageKey = "home" | "services" | "showcase" | "about" | "contact";
 
 export const pagePaths: Record<PageKey, string> = {
   home: "/",
   services: "/services",
+  showcase: "/showcase",
   about: "/about",
   contact: "/contact",
 };

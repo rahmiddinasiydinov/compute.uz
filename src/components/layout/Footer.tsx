@@ -10,6 +10,7 @@ import { Dot } from "@/components/brand/Mark";
 const pages = [
   { href: "/", key: "home" },
   { href: "/services", key: "services" },
+  { href: "/showcase", key: "showcase" },
   { href: "/about", key: "about" },
   { href: "/contact", key: "contact" },
 ] as const;

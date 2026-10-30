@@ -15,6 +15,16 @@ export const site = {
 export const serviceKeys = ["os", "software", "web", "automation", "legal"] as const;
 export type ServiceKey = (typeof serviceKeys)[number];
 
+/** Projects in the showcase. Copy lives in messages `showcase.items.<key>`. */
+export const showcaseProjects = [
+  {
+    key: "lucent",
+    url: "https://www.lucent.uz",
+    image: "/showcase/lucent.png",
+    stack: ["Next.js", "i18n", "Telegram"],
+  },
+] as const;
+
 /** Starting prices in UZS for structured data (null = on request). Keep in sync with messages `services.page.prices`. */
 export const servicePrices: Record<ServiceKey, number | null> = {
   os: 150_000,

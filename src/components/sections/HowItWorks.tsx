@@ -45,7 +45,7 @@ export function HowItWorks() {
   return (
     <section className="py-24 lg:py-36">
       <Container>
-        <SectionHeading index="03" label={t("label")} title={t("title")} text={t("text")} />
+        <SectionHeading index="04" label={t("label")} title={t("title")} text={t("text")} />
 
         <div ref={ref} className="mt-16 grid gap-12 sm:grid-cols-3 sm:gap-6 lg:mt-24 lg:gap-8">
           {steps.map((key, i) => (
